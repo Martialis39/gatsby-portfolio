@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  background: black;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+  margin: 20px 0;
+  color: #fff;
+}
+
+p {
+  line-height: 1.4;
+  font-size: 20px;
+}
+
+p,
+a,
+a:visited,
+li {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+}
+
+a {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}

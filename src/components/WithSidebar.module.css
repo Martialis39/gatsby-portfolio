@@ -1,0 +1,30 @@
+.container {
+  padding-top: 40px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+.sidebar {
+  width: 100%;
+  max-width: 232px;
+  margin: 20px;
+  background: red;
+}
+
+.main {
+  width: 100%;
+  margin: 20px;
+  max-width: 568px;
+  background: red;
+}
+
+@media screen and (min-width: 1120px) {
+  .flex {
+    /* margin-left: -232px; */
+  }
+}
