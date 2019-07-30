@@ -1,10 +1,15 @@
+.post {
+  padding-top: 20px;
+}
 .post h1 {
+  font-family: "Rubik", sans-serif;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 26px;
   max-width: 480px;
-  margin-bottom: 10px;
-  letter-spacing: -0.1px;
-  color: white;
+  letter-spacing: -0.5px;
+  color: black;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
 .post span {
@@ -25,7 +30,7 @@
 }
 
 .post p {
-  margin-bottom: 20px;
+  margin: 12px 0;
 }
 
 .post ul {
@@ -79,16 +84,22 @@
 }
 
 .post p {
-  font-size: 20px;
+  font-size: 17px;
+  letter-spacing: -0.3px;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 600px) {
+  .post {
+    padding-top: 80px;
+  }
+
   .post h1 {
-    font-size: 52px;
-    letter-spacing: -0.5px;
+    font-size: 60px;
+    letter-spacing: -0.1px;
   }
 
   .post p {
     font-size: 20px;
+    letter-spacing: normal;
   }
 }

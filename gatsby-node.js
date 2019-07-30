@@ -5,40 +5,66 @@
  */
 
 // You can delete this file if you're not using it
-const axios = require("axios")
 
-exports.createPages = async ({ actions: { createPage } }) => {
-  // Fetch posts
-  const query = await axios.get(
-    `https://wordpress.martpart.ee/wp-json/wp/v2/posts?_embed`
-  )
+async function createBlogPostPages(graphql, actions, reporter) {
+  const { createPage } = actions
+  const result = await graphql(`
+    query MyQuery2 {
+      allSanityPost(sort: { fields: publishedAt, order: DESC }) {
+        edges {
+          node {
+            _id
+            publishedAt(formatString: "DD/MM/YYYY")
+            categories {
+              _id
+              title
+            }
 
-  const posts = query.data
-  // create a blog or "posts" page
-  createPage({
-    path: `/blog/`,
-    component: require.resolve("./src/templates/blog.js"),
-    context: {
-      posts: posts,
-    },
-  })
+            title
+            slug {
+              current
+            }
+            _rawBody
+          }
+        }
+      }
+    }
+  `)
 
-  // Create a page for each post.
-  console.log("Posts are", posts)
-  posts.forEach(post => {
-    // language is the language code, like ET or EN
+  if (result.errors) throw result.errors
+  const postEdges = (result.data.allSanityPost || {}).edges || []
+
+  postEdges.forEach((edge, index) => {
+    const id = edge.node._id
+    const rawBody = edge.node._rawBody
+    const slug = edge.node.slug
+    const title = edge.node.title
+    const date = edge.node.publishedAt
+
+    const path = `/blog/${slug.current}/`
+    reporter.info(`Creating blog post page: ${path}`)
+
     createPage({
-      path: `/blog/${post.slug}/`,
+      path,
       component: require.resolve("./src/templates/post.js"),
-      context: {
-        title: post.title.rendered,
-        content: post.content.rendered,
-        date: post.date
-          .slice(0, 10)
-          .split("-")
-          .reverse()
-          .join("/"),
-      },
+      context: { id, rawBody, title, date },
     })
   })
+  const posts = postEdges.map(edge => {
+    return {
+      title: edge.node.title,
+      slug: edge.node.slug.current,
+      date: edge.node.publishedAt,
+    }
+  })
+
+  createPage({
+    path: "/blog/",
+    component: require.resolve("./src/templates/blog.js"),
+    context: { posts: posts },
+  })
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  await createBlogPostPages(graphql, actions, reporter)
 }
