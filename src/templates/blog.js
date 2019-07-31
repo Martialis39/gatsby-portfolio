@@ -2,6 +2,7 @@ import React from "react"
 import SingleColumn from "../components/SingleColumn"
 import PageFrame from "../components/PageFrame"
 import styles from "./blog.module.css"
+import { Link } from "gatsby"
 
 export default ({ pageContext: { posts } }) => {
   return (
@@ -23,7 +24,7 @@ export default ({ pageContext: { posts } }) => {
 
             return (
               <article className={styles.article} key={index}>
-                <a href={`https://martpart.ee/blog/${post.slug}`}>
+                <Link to={`/blog/${post.slug}`}>
                   <div className={styles.article__flex}>
                     <div className={styles.article__date}>
                       <div className={styles.article__day}>{day}</div>
@@ -33,7 +34,7 @@ export default ({ pageContext: { posts } }) => {
                       <h3>{post.title}</h3>
                     </div>
                   </div>
-                </a>
+                </Link>
               </article>
             )
           })}

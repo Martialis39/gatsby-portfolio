@@ -2,6 +2,7 @@ import React from "react"
 import styles from "./Hero.module.css"
 import SingleColumn from "./SingleColumn"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
+import { Link } from "gatsby"
 
 function Hero() {
   return (
@@ -30,7 +31,7 @@ function Hero() {
 
               <ul>
                 <li>
-                  <a href="/blog">Read my blog</a>
+                  <Link to="/blog">Read my blog</Link>
                 </li>
               </ul>
             </div>
