@@ -20,7 +20,7 @@ const BlogPostTemplate = props => {
   const post = props && props.pageContext
   console.log(post, " is data")
   return (
-    <PageFrame>
+    <PageFrame title={post.title} pagePath={post.pagePath}>
       <section className={styles.post__main}>
         <SingleColumn>{post && <BlogPost {...post} />}</SingleColumn>
       </section>

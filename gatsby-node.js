@@ -47,7 +47,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
     createPage({
       path,
       component: require.resolve("./src/templates/post.js"),
-      context: { id, rawBody, title, date },
+      context: { id, rawBody, title, date, pagePath: path },
     })
   })
   const posts = postEdges.map(edge => {
@@ -61,7 +61,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
   createPage({
     path: "/blog/",
     component: require.resolve("./src/templates/blog.js"),
-    context: { posts: posts },
+    context: { posts: posts, pagePath: "/blog/" },
   })
 }
 

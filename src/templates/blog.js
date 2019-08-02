@@ -4,9 +4,9 @@ import PageFrame from "../components/PageFrame"
 import styles from "./blog.module.css"
 import { Link } from "gatsby"
 
-export default ({ pageContext: { posts } }) => {
+export default ({ pageContext: { posts, pagePath } }) => {
   return (
-    <PageFrame>
+    <PageFrame title="Blog" pagePath={pagePath}>
       <SingleColumn>
         <section className={styles.blog}>
           <header className={styles.header}>

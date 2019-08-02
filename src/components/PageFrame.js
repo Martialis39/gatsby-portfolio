@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-function PageFrame({ children }) {
+function PageFrame({ children, title, pagePath }) {
   return (
     <main>
       <Helmet>
@@ -15,8 +15,15 @@ function PageFrame({ children }) {
           property="og:description"
           content="Join me on my adventures through the wonderful lands of JavaScript!"
         />
-        <title>MartPart - speak Javascript to me</title>
-        <link rel="canonical" href="https://martpart.ee" />
+        <title>
+          {title ? `${title} - MartPart` : "MartPart - speak Javascript to me"}
+        </title>
+        <link
+          rel="canonical"
+          href={
+            pagePath ? `https://martpart.ee${pagePath}` : `https://martpart.ee`
+          }
+        />
         <html lang="en" />
       </Helmet>
       {children}
