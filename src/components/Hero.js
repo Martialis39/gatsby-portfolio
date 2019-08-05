@@ -11,11 +11,13 @@ function Hero() {
         <section className={styles.hero}>
           <div className={styles.hero__inner}>
             <div className={styles.hero__copy}>
-              <h2>
+              <h1>
                 <span>Hi</span>
                 <span>I'm</span>
                 <span className={styles.hero__name}>Mart</span>
-              </h2>
+                <span className={styles.hero__name}>Lepanen</span>
+              </h1>
+              <h2>I'm a front-end developer.</h2>
               <ul className={styles.hero__icons}>
                 <li>
                   <a href="https://www.linkedin.com/in/mart-lepanen">

@@ -1,5 +1,5 @@
 .hero {
-  height: 97vh;
+  height: 93vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +37,10 @@
   width: 100%;
 }
 
+.hero__copy h2 {
+  margin-top: 20px;
+}
+
 .hero__copy span {
   display: block;
   font-weight: 500;
@@ -47,10 +51,10 @@ span.hero__name {
   font-weight: 700;
 }
 
-.hero__copy h2 {
+.hero__copy h1 {
   font-family: "Rubik", sans-serif;
   line-height: 0.8;
-  font-size: 56px;
+  font-size: 46px;
   margin-left: -6px;
 }
 
@@ -78,8 +82,9 @@ span.hero__name {
     align-items: center;
   }
 
-  .hero__copy h1 {
-    font-size: 26px;
+  span.hero__name {
+    font-size: 64px;
+    font-weight: 700;
   }
 
   .hero__copy p {
