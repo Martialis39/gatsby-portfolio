@@ -1,12 +1,12 @@
 import React from "react"
 import SingleColumn from "../components/SingleColumn"
-import PageFrame from "../components/PageFrame"
+import SEO from "../components/SEO"
 import styles from "./blog.module.css"
 import { Link } from "gatsby"
 
 export default ({ pageContext: { posts, pagePath } }) => {
   return (
-    <PageFrame title="Blog" pagePath={pagePath}>
+    <SEO title="Blog" pagePath={pagePath}>
       <SingleColumn>
         <section className={styles.blog}>
           <header className={styles.header}>
@@ -41,6 +41,6 @@ export default ({ pageContext: { posts, pagePath } }) => {
           <article></article>
         </section>
       </SingleColumn>
-    </PageFrame>
+    </SEO>
   )
 }

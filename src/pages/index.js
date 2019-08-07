@@ -1,9 +1,9 @@
 import React from "react"
-import PageFrame from "../components/PageFrame"
+import SEO from "../components/SEO"
 import Hero from "../components/Hero"
 
 export default () => (
-  <PageFrame>
+  <SEO>
     <Hero />
-  </PageFrame>
+  </SEO>
 )

@@ -1,6 +1,6 @@
 import React from "react"
 import SingleColumn from "../components/SingleColumn"
-import PageFrame from "../components/PageFrame"
+import SEO from "../components/SEO"
 import styles from "./post.module.css"
 import BlockContent from "../components/block-content/BlockContent"
 
@@ -20,11 +20,15 @@ const BlogPostTemplate = props => {
   const post = props && props.pageContext
   console.log(post, " is data")
   return (
-    <PageFrame title={post.title} pagePath={post.pagePath}>
+    <SEO
+      title={post.title}
+      pagePath={post.pagePath}
+      excerpt={post.excerpt ? post.excerpt : null}
+    >
       <section className={styles.post__main}>
         <SingleColumn>{post && <BlogPost {...post} />}</SingleColumn>
       </section>
-    </PageFrame>
+    </SEO>
   )
 }
 export default BlogPostTemplate

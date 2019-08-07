@@ -13,13 +13,13 @@ async function createBlogPostPages(graphql, actions, reporter) {
       allSanityPost(sort: { fields: publishedAt, order: DESC }) {
         edges {
           node {
+            excerpt
             _id
             publishedAt(formatString: "DD/MM/YYYY")
             categories {
               _id
               title
             }
-
             title
             slug {
               current
@@ -40,17 +40,18 @@ async function createBlogPostPages(graphql, actions, reporter) {
     const slug = edge.node.slug
     const title = edge.node.title
     const date = edge.node.publishedAt
-
     const path = `/blog/${slug.current}/`
+    const excerpt = edge.node.excerpt ? edge.node.excerpt : null
     reporter.info(`Creating blog post page: ${path}`)
 
     createPage({
       path,
       component: require.resolve("./src/templates/post.js"),
-      context: { id, rawBody, title, date, pagePath: path },
+      context: { id, rawBody, title, date, pagePath: path, excerpt },
     })
   })
   const posts = postEdges.map(edge => {
+    console.log(edge.node.excerpt)
     return {
       title: edge.node.title,
       slug: edge.node.slug.current,
