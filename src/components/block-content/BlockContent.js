@@ -20,7 +20,7 @@ const serializers = {
       const fluidProps = getFluidGatsbyImage(
         node.asset._ref,
         { maxWidth: 777 },
-        ...config
+        ...config.sanity
       )
       return (
         <figure>
