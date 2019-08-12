@@ -59,6 +59,10 @@ client-config.js
 # Mac files
 .DS_Store
 
+# Env files
+.env.development
+.env.production
+
 # Yarn
 yarn-error.log
 .pnp/
