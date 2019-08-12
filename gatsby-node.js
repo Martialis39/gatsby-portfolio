@@ -8,6 +8,33 @@
 
 async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions
+
+  const projectQuery = await graphql(`
+    query ProjectQuery {
+      allSanityProject {
+        edges {
+          node {
+            title
+            excerpt
+            _rawBody
+            mainImage {
+              asset {
+                url
+              }
+            }
+            slug {
+              current
+            }
+            deploymentUrl
+            sourceUrl
+            techonologies {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
   const result = await graphql(`
     query MyQuery2 {
       allSanityPost(sort: { fields: publishedAt, order: DESC }) {
@@ -32,8 +59,36 @@ async function createBlogPostPages(graphql, actions, reporter) {
   `)
 
   if (result.errors) throw result.errors
+  if (projectQuery.errors) throw projectQuery.errors
   const postEdges = (result.data.allSanityPost || {}).edges || []
+  const projectEdges = (projectQuery.data.allSanityProject || {}).edges || []
 
+  projectEdges.forEach((edge, index) => {
+    console.log("Rawbody os", edge.node._rawBody)
+    const id = edge.node._id
+    const rawBody = edge.node._rawBody
+    const slug = edge.node.slug.current
+    const title = edge.node.title
+    const excerpt = edge.node.excerpt
+    const deploymentUrl = edge.node.deploymentUrl
+    const sourceUrl = edge.node.sourceUrl
+    const techonologies = edge.node.techonologies
+    const path = `/projects/${slug}/`
+    createPage({
+      path,
+      component: require.resolve("./src/templates/project.js"),
+      context: {
+        id,
+        rawBody,
+        title,
+        excerpt,
+        pagePath: path,
+        deploymentUrl,
+        sourceUrl,
+        techonologies,
+      },
+    })
+  })
   postEdges.forEach((edge, index) => {
     const id = edge.node._id
     const rawBody = edge.node._rawBody
@@ -50,6 +105,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
       context: { id, rawBody, title, date, pagePath: path, excerpt },
     })
   })
+
   const posts = postEdges.map(edge => {
     console.log(edge.node.excerpt)
     return {
@@ -57,6 +113,20 @@ async function createBlogPostPages(graphql, actions, reporter) {
       slug: edge.node.slug.current,
       date: edge.node.publishedAt,
     }
+  })
+
+  const projects = projectEdges.map(edge => {
+    return {
+      title: edge.node.title,
+      slug: edge.node.slug.current,
+      image: edge.node.mainImage.asset.url,
+      excerpt: edge.node.excerpt,
+    }
+  })
+  createPage({
+    path: "/projects/",
+    component: require.resolve("./src/templates/projects.js"),
+    context: { projects: projects, pagePath: "/projects/" },
   })
 
   createPage({

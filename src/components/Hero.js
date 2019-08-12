@@ -31,9 +31,12 @@ function Hero() {
                 </li>
               </ul>
 
-              <ul>
+              <ul className={styles.hero__links}>
                 <li>
                   <Link to="/blog">Read my blog</Link>
+                </li>
+                <li>
+                  <Link to="/projects">Look at my portfolio</Link>
                 </li>
               </ul>
             </div>

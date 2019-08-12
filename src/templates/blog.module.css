@@ -36,20 +36,18 @@ span.header__title {
 }
 
 .article h3:after {
-  display: block;
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 20%;
+  display: block;
   width: 100%;
-  background: #ff69b470;
-  z-index: -1;
-  transition: height 200ms ease-out;
+  height: 50%;
+  opacity: 0.2;
+  bottom: 0;
+  background-color: hotpink;
 }
 
-.article:hover h3:after {
-  height: 100%;
+.article a:after {
+  display: none;
 }
 
 .article__flex {

@@ -1,10 +1,29 @@
 import BaseBlockContent from "@sanity/block-content-to-react"
 import React from "react"
+import { getFluidGatsbyImage } from "gatsby-source-sanity"
+import Img from "gatsby-image"
+import clientConfig from "../../../client-config"
 
 const serializers = {
   types: {
+    image({ node }) {
+      if (!node.asset) {
+        return
+      }
+
+      const fluidProps = getFluidGatsbyImage(
+        node.asset._ref,
+        { maxWidth: 777 },
+        ...clientConfig.sanity
+      )
+      return (
+        <figure>
+          <Img fluid={fluidProps} alt={node.alt} />
+          {node.caption && <figcaption>{node.caption}</figcaption>}
+        </figure>
+      )
+    },
     code(props) {
-      console.log(props.node)
       return (
         <pre className={`language-${props.node.language}`}>
           <code>{props.node.code}</code>
