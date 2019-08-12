@@ -12,6 +12,11 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-styled-components`,
+    // },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

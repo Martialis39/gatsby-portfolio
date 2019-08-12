@@ -1,5 +1,4 @@
 import React from "react"
-import SingleColumn from "../components/SingleColumn"
 import SEO from "../components/SEO"
 import BlockContent from "../components/block-content/BlockContent"
 import styled from "styled-components"
@@ -46,13 +45,13 @@ function Sidebar(props) {
       <h1>{title}</h1>
       {techonologies && <Chips techonologies={techonologies} />}
       {deploymentUrl && (
-        <a target="_blank" href={deploymentUrl}>
+        <a target="_blank" rel="noopener noreferrer" href={deploymentUrl}>
           Live demo
         </a>
       )}
       <br></br>
       {sourceUrl && (
-        <a target="_blank" href={sourceUrl}>
+        <a target="_blank" rel="noopener noreferrer" href={sourceUrl}>
           Source
         </a>
       )}
