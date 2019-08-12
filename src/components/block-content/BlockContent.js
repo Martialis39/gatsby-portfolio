@@ -2,7 +2,13 @@ import BaseBlockContent from "@sanity/block-content-to-react"
 import React from "react"
 import { getFluidGatsbyImage } from "gatsby-source-sanity"
 import Img from "gatsby-image"
-import clientConfig from "../../../client-config"
+
+const config = {
+  sanity: {
+    projectId: process.env.GATSBY_PROJECTID,
+    dataset: process.env.GATSBY_DATASET,
+  },
+}
 
 const serializers = {
   types: {
@@ -14,7 +20,7 @@ const serializers = {
       const fluidProps = getFluidGatsbyImage(
         node.asset._ref,
         { maxWidth: 777 },
-        ...clientConfig.sanity
+        ...config
       )
       return (
         <figure>
