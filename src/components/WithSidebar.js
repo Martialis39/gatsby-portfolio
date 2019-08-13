@@ -31,13 +31,14 @@ const StyledSection = styled.section`
     }
 
     h1 {
-      font-size: 50px;
+      font-size: 36px;
       font-family: Rubik, sans-serif;
       font-weight: 700;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 820px) {
     .side {
+      font-size: 50px;
       max-width: 18%;
     }
 

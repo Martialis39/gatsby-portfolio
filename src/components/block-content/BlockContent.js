@@ -5,8 +5,8 @@ import Img from "gatsby-image"
 
 const config = {
   sanity: {
-    projectId: process.env.GATSBY_PROJECTID,
-    dataset: process.env.GATSBY_DATASET,
+    projectId: process.env.PROJECTID,
+    dataset: process.env.DATASET,
   },
 }
 
@@ -16,7 +16,7 @@ const serializers = {
       if (!node.asset) {
         return
       }
-
+      console.log("Config is", config)
       const fluidProps = getFluidGatsbyImage(
         node.asset._ref,
         { maxWidth: 777 },
