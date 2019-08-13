@@ -4,15 +4,17 @@ import SEO from "../components/SEO"
 import styles from "./post.module.css"
 import BlockContent from "../components/block-content/BlockContent"
 
+import { ArticleDiv } from "../components/typographyStyles"
+
 function BlogPost(props) {
   const { rawBody, title, date } = props
 
   return (
-    <article className={styles.post}>
+    <ArticleDiv className={styles.post}>
       <h1>{title}</h1>
       <p>{date}</p>
       {rawBody && <BlockContent blocks={rawBody} />}
-    </article>
+    </ArticleDiv>
   )
 }
 

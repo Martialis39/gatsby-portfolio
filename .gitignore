@@ -62,6 +62,7 @@ client-config.js
 # Env files
 .env.development
 .env.production
+.env
 
 # Yarn
 yarn-error.log

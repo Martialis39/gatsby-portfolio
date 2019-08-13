@@ -39,7 +39,7 @@ function Chips({ techonologies }) {
 
 function Sidebar(props) {
   const { title, deploymentUrl, sourceUrl, techonologies } = props
-
+  console.log("Env variables are", process.env)
   return (
     <>
       <h1>{title}</h1>
