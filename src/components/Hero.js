@@ -3,6 +3,15 @@ import styles from "./Hero.module.css"
 import SingleColumn from "./SingleColumn"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "gatsby"
+import styled from "styled-components"
+
+const Divider = styled.div`
+  background: hotpink;
+  height: 1px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+`
 
 function Hero() {
   return (
@@ -31,6 +40,15 @@ function Hero() {
                 </li>
               </ul>
 
+              <div>
+                <p>
+                  I used to do something completely different! I left my
+                  previous career to become the greatest JavaScript developer!{" "}
+                  <em>Am I delusional?</em> Perhaps!{" "}
+                  <a href="mailto:mart_lepanen@hotmail.com">Let's chat</a> so we
+                  can find out!
+                </p>
+              </div>
               <ul className={styles.hero__links}>
                 <li>
                   <Link to="/blog">Read my blog</Link>

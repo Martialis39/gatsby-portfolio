@@ -24,7 +24,7 @@ const StyledSection = styled.section`
       position: absolute;
       display: block;
       width: 100%;
-      height: 50%;
+      height: 35%;
       opacity: 0.2;
       bottom: 0;
       background-color: hotpink;
