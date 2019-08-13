@@ -16,7 +16,6 @@ const serializers = {
       if (!node.asset) {
         return
       }
-      console.log("Config is", config)
       const fluidProps = getFluidGatsbyImage(
         node.asset._ref,
         { maxWidth: 777 },
