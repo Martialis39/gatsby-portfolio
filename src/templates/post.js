@@ -20,7 +20,7 @@ function BlogPost(props) {
 
 const BlogPostTemplate = props => {
   const post = props && props.pageContext
-  console.log(post, " is data")
+
   return (
     <SEO
       title={post.title}

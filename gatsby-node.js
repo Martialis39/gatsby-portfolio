@@ -64,7 +64,6 @@ async function createBlogPostPages(graphql, actions, reporter) {
   const projectEdges = (projectQuery.data.allSanityProject || {}).edges || []
 
   projectEdges.forEach((edge, index) => {
-    console.log("Rawbody os", edge.node._rawBody)
     const id = edge.node._id
     const rawBody = edge.node._rawBody
     const slug = edge.node.slug.current
@@ -107,7 +106,6 @@ async function createBlogPostPages(graphql, actions, reporter) {
   })
 
   const posts = postEdges.map(edge => {
-    console.log(edge.node.excerpt)
     return {
       title: edge.node.title,
       slug: edge.node.slug.current,

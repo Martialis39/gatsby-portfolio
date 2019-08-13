@@ -39,7 +39,7 @@ function Chips({ techonologies }) {
 
 function Sidebar(props) {
   const { title, deploymentUrl, sourceUrl, techonologies } = props
-  console.log("Env variables are", process.env)
+
   return (
     <>
       <h1>{title}</h1>
@@ -70,7 +70,7 @@ function Main(props) {
 
 const ProjectTemplate = props => {
   const project = props && props.pageContext
-  console.log(project)
+
   return (
     <SEO
       title={project.title}
