@@ -5,12 +5,24 @@ export const Projects = styled.div`
   position: relative;
 `
 
-export const Header = styled.div`
-  h1 {
-    font-weight: 700;
-    margin-bottom: 20px;
-    @media screen and (min-width: 1200px) {
-      font-size: 56px;
+export const ProjectsTitle = styled.h1`
+  margin-bottom: 40px;
+  margin-top: 20px;
+  line-height: 0.9;
+  span {
+    display: block;
+    font-family: Rubik;
+  }
+  .title {
+    font-size: 48px;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 60px;
+    font-size: 56px;
+    line-height: 0.8;
+    .title {
+      font-size: 74px;
+      margin-left: -31px;
     }
   }
 `
@@ -18,13 +30,23 @@ export const Header = styled.div`
 export const ProjectItem = styled(animated.article)`
   display: flex;
   height: 280px;
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
   position: relative;
+  margin: 0 auto;
   margin-bottom: 10px;
   align-items: center;
   justify-content: center;  
   overflow: hidden;
   box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.3);
+
+  @media (max-width: 600px){
+    max-width: 100%;
+    width:
+    .info {
+        transform: translateY(0);
+      }
+  }
 
   :hover {
       .info {

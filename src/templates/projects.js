@@ -3,7 +3,12 @@ import SingleColumn from "../components/SingleColumn"
 import SEO from "../components/SEO"
 
 import { Link } from "gatsby"
-import { Projects, Header, ProjectItem, ProjectImage } from "./projectStyles"
+import {
+  Projects,
+  ProjectItem,
+  ProjectImage,
+  ProjectsTitle,
+} from "./projectStyles"
 
 const heightParameter = "?h=300"
 
@@ -11,9 +16,13 @@ export default ({ pageContext: { projects, pagePath } }) => {
   return (
     <SEO title="Projects" pagePath={pagePath}>
       <SingleColumn>
-        <Header>
-          <h1>Projects.</h1>
-        </Header>
+        <header>
+          <ProjectsTitle>
+            <span>Let's</span>
+            <span>look at</span>
+            <span className="title">JavaScript.</span>
+          </ProjectsTitle>
+        </header>
         <Projects>
           {projects.map((project, index) => {
             return (
