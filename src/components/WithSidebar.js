@@ -40,6 +40,9 @@ const StyledSection = styled.section`
     .side {
       font-size: 50px;
       max-width: 18%;
+      position: fixed;
+      left: 0;
+      height: 100vh;
     }
 
     .mainContent {
