@@ -1,14 +1,21 @@
 import React from "react"
 import styled from "styled-components"
 
+import { ArticleDiv } from "./typographyStyles"
+
 const StyledSection = styled.section`
   display: flex;
   max-width: 1408px;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 0px 20px;
   flex-wrap: wrap;
+  .mainContent {
+    min-width: 0;
+    padding-bottom: 20px;
+  }
   .side {
     width: 100%;
+    min-width: 0;
 
     a {
       position: relative;
@@ -41,23 +48,24 @@ const StyledSection = styled.section`
       font-size: 50px;
       max-width: 18%;
       position: fixed;
-      left: 0;
+      left: 20px;
       height: 100vh;
     }
 
     .mainContent {
       max-width: 62.2%;
-      margin: 0 6.6%;
+      margin-right: 6.6%;
+      margin-left: auto;
     }
   }
   @media (min-width: 1400px) {
     .side {
-      margin-right: 13.3%;
+      margin: 0 13.3%;
     }
 
     .mainContent {
       max-width: 55%;
-      margin: 0;
+      margin-right: 13.3%;
     }
   }
 `
@@ -66,7 +74,9 @@ function WithSidebar({ sidebarContent, mainContent }) {
   return (
     <StyledSection>
       <div className="side">{sidebarContent}</div>
-      <div className="mainContent">{mainContent}</div>
+      <div className="mainContent">
+        <ArticleDiv>{mainContent}</ArticleDiv>
+      </div>
     </StyledSection>
   )
 }

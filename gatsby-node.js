@@ -27,7 +27,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
             }
             deploymentUrl
             sourceUrl
-            techonologies {
+            technologies {
               title
             }
           }
@@ -39,12 +39,23 @@ async function createBlogPostPages(graphql, actions, reporter) {
     query MyQuery2 {
       allSanityPost(sort: { fields: publishedAt, order: DESC }) {
         edges {
+          next {
+            title
+            slug {
+              current
+            }
+          }
+          previous {
+            title
+            slug {
+              current
+            }
+          }
           node {
             excerpt
             _id
             publishedAt(formatString: "DD/MM/YYYY")
             categories {
-              _id
               title
             }
             title
@@ -71,7 +82,7 @@ async function createBlogPostPages(graphql, actions, reporter) {
     const excerpt = edge.node.excerpt
     const deploymentUrl = edge.node.deploymentUrl
     const sourceUrl = edge.node.sourceUrl
-    const techonologies = edge.node.techonologies
+    const technologies = edge.node.technologies
     const path = `/projects/${slug}/`
     createPage({
       path,
@@ -84,10 +95,11 @@ async function createBlogPostPages(graphql, actions, reporter) {
         pagePath: path,
         deploymentUrl,
         sourceUrl,
-        techonologies,
+        technologies,
       },
     })
   })
+
   postEdges.forEach((edge, index) => {
     const id = edge.node._id
     const rawBody = edge.node._rawBody
@@ -95,13 +107,38 @@ async function createBlogPostPages(graphql, actions, reporter) {
     const title = edge.node.title
     const date = edge.node.publishedAt
     const path = `/blog/${slug.current}/`
+    const categories = edge.node.categories
     const excerpt = edge.node.excerpt ? edge.node.excerpt : null
-    reporter.info(`Creating blog post page: ${path}`)
 
+    const nextPost = edge.previous
+      ? {
+          title: edge.previous.title,
+          slug: edge.previous.slug.current,
+        }
+      : null
+    const prevPost = edge.next
+      ? {
+          title: edge.next.title,
+          slug: edge.next.slug.current,
+        }
+      : null
+
+    reporter.info(`Creating blog post page: ${path}`)
+    reporter.info(`Next post is: ${nextPost}`)
     createPage({
       path,
       component: require.resolve("./src/templates/post.js"),
-      context: { id, rawBody, title, date, pagePath: path, excerpt },
+      context: {
+        id,
+        rawBody,
+        title,
+        date,
+        pagePath: path,
+        excerpt,
+        categories,
+        nextPost,
+        prevPost,
+      },
     })
   })
 

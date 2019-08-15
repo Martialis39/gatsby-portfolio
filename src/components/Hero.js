@@ -5,14 +5,6 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-const Divider = styled.div`
-  background: hotpink;
-  height: 1px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-`
-
 function Hero() {
   return (
     <section className={styles.hero__main}>

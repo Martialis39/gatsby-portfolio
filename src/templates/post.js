@@ -1,20 +1,77 @@
 import React from "react"
-import SingleColumn from "../components/SingleColumn"
 import SEO from "../components/SEO"
-import styles from "./post.module.css"
 import BlockContent from "../components/block-content/BlockContent"
+import Chips from "../components/Chips"
+import WithSidebar from "../components/WithSidebar"
+import { Link } from "gatsby"
+import styled from "styled-components"
 
-import { ArticleDiv } from "../components/typographyStyles"
+const LinkDiv = styled.div`
+  @media (min-width: 770px) {
+    display: flex;
+    justify-content: space-between;
 
-function BlogPost(props) {
-  const { rawBody, title, date } = props
+    > * {
+      margin: 0;
+    }
+  }
+
+  > * {
+    min-width: 0;
+    flex: none;
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: 15px;
+  }
+`
+
+const Divider = styled.div`
+  background: hotpink;
+  height: 1px;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+`
+
+function Sidebar(props) {
+  const { categories, date, title } = props
 
   return (
-    <ArticleDiv className={styles.post}>
+    <>
       <h1>{title}</h1>
       <p>{date}</p>
+      {categories && <Chips items={categories} />}
+      <div>
+        <Link to="/blog">Back to blog</Link>
+      </div>
+    </>
+  )
+}
+
+function Main(props) {
+  const { rawBody, nextPost, prevPost } = props
+  return (
+    <>
       {rawBody && <BlockContent blocks={rawBody} />}
-    </ArticleDiv>
+      <Divider />
+      <LinkDiv>
+        {prevPost ? (
+          <div className="prev">
+            <p>Previous post:</p>
+            <Link to={`/blog/${prevPost.slug}`}>{prevPost.title}</Link>
+          </div>
+        ) : (
+          <p>This is the oldest post.</p>
+        )}
+        {nextPost ? (
+          <div className="next">
+            <p>Next post:</p>
+            <Link to={`/blog/${nextPost.slug}`}>{nextPost.title}</Link>
+          </div>
+        ) : null}
+      </LinkDiv>
+    </>
   )
 }
 
@@ -27,9 +84,23 @@ const BlogPostTemplate = props => {
       pagePath={post.pagePath}
       excerpt={post.excerpt ? post.excerpt : null}
     >
-      <section className={styles.post__main}>
-        <SingleColumn>{post && <BlogPost {...post} />}</SingleColumn>
-      </section>
+      <WithSidebar
+        sidebarContent={
+          <Sidebar
+            categories={post.categories}
+            title={post.title}
+            date={post.date}
+          />
+        }
+        mainContent={
+          <Main
+            mainImageUrl={post.mainImage ? post.mainImage.asset.url : null}
+            rawBody={post.rawBody}
+            nextPost={post.nextPost}
+            prevPost={post.prevPost}
+          />
+        }
+      />
     </SEO>
   )
 }

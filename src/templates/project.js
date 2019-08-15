@@ -4,38 +4,7 @@ import BlockContent from "../components/block-content/BlockContent"
 import styled from "styled-components"
 import WithSidebar from "../components/WithSidebar"
 import { ArticleDiv } from "../components/typographyStyles"
-
-function Chips({ techonologies }) {
-  const Wrap = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-left: -10px;
-    > * {
-      margin: 10px;
-    }
-  `
-  const StyledDiv = styled.div`
-    background: hotpink;
-    padding: 4px;
-    border-radius: 4px;
-    p {
-      color: white;
-      font-size: 14px;
-    }
-  `
-  return (
-    <Wrap>
-      {techonologies.map(tech => {
-        return (
-          <StyledDiv>
-            <p>{tech.title}</p>
-          </StyledDiv>
-        )
-      })}
-    </Wrap>
-  )
-}
+import Chips from "../components/Chips"
 
 function Sidebar(props) {
   const { title, deploymentUrl, sourceUrl, techonologies } = props
@@ -43,7 +12,7 @@ function Sidebar(props) {
   return (
     <>
       <h1>{title}</h1>
-      {techonologies && <Chips techonologies={techonologies} />}
+      {techonologies && <Chips items={techonologies} />}
       {deploymentUrl && (
         <a target="_blank" rel="noopener noreferrer" href={deploymentUrl}>
           Live demo
