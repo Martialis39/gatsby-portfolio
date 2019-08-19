@@ -5,8 +5,8 @@ import Img from "gatsby-image"
 
 const config = {
   sanity: {
-    projectId: process.env.PROJECTID,
-    dataset: process.env.DATASET,
+    projectId: process.env.GATSBY_PROJECTID,
+    dataset: process.env.GATSBY_DATASET,
   },
 }
 
