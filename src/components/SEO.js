@@ -5,6 +5,9 @@ function SEO({ children, title, pagePath, excerpt }) {
   return (
     <main>
       <Helmet>
+        <title>
+          {title ? `${title} - MartPart` : "MartPart - speak Javascript to me"}
+        </title>
         <meta charSet="utf-8" />
         <meta
           name="description"
@@ -21,15 +24,6 @@ function SEO({ children, title, pagePath, excerpt }) {
             excerpt
               ? excerpt
               : "Join me on my adventures through the wonderful lands of JavaScript!"
-          }
-        />
-        <title>
-          {title ? `${title} - MartPart` : "MartPart - speak Javascript to me"}
-        </title>
-        <link
-          rel="canonical"
-          href={
-            pagePath ? `https://martpart.ee${pagePath}` : `https://martpart.ee`
           }
         />
         <html lang="en" />
