@@ -5,25 +5,10 @@ export const Projects = styled.div`
   position: relative;
 `
 
-export const ProjectsTitle = styled.h1`
-  margin-bottom: 40px;
-  margin-top: 20px;
-  line-height: 0.9;
-  span {
-    display: block;
-    font-family: Rubik;
-  }
-  .title {
-    font-size: 48px;
-  }
-  @media screen and (min-width: 1200px) {
-    margin-top: 60px;
-    font-size: 56px;
-    line-height: 0.8;
-    .title {
-      font-size: 74px;
-      margin-left: -31px;
-    }
+export const FloatingLink = styled.div`
+  @media (min-width: 570px) {
+    position: absolute;
+    right: 0;
   }
 `
 
@@ -66,7 +51,7 @@ export const ProjectItem = styled(animated.article)`
     }
   }
   .title {
-    font-family: "Rubik", sans-serif;
+   
     font-weight: 700;
     font-size: 36px;
   }

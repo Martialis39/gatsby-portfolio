@@ -2,7 +2,7 @@ import React from "react"
 import SEO from "../components/SEO"
 import BlockContent from "../components/block-content/BlockContent"
 import Chips from "../components/Chips"
-import WithSidebar from "../components/WithSidebar"
+import SidebarLayout from "../components/SidebarLayout"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -18,7 +18,7 @@ const LinkDiv = styled.div`
 
   > * {
     min-width: 0;
-    flex: none;
+    flex: 1;
   }
 
   > *:not(:last-child) {
@@ -40,7 +40,7 @@ function Sidebar(props) {
   return (
     <>
       <h1>{title}</h1>
-      <p>{date}</p>
+      <p className="date">{date}</p>
       {categories && <Chips items={categories} />}
       <div>
         <Link to="/blog">Back to blog</Link>
@@ -84,7 +84,7 @@ const BlogPostTemplate = props => {
       pagePath={post.pagePath}
       excerpt={post.excerpt ? post.excerpt : null}
     >
-      <WithSidebar
+      <SidebarLayout
         sidebarContent={
           <Sidebar
             categories={post.categories}

@@ -1,10 +1,10 @@
 import React from "react"
 import SEO from "../components/SEO"
 import BlockContent from "../components/block-content/BlockContent"
-import styled from "styled-components"
-import WithSidebar from "../components/WithSidebar"
+import SidebarLayout from "../components/SidebarLayout"
 import { ArticleDiv } from "../components/typographyStyles"
 import Chips from "../components/Chips"
+import { Link } from "gatsby"
 
 function Sidebar(props) {
   const { title, deploymentUrl, sourceUrl, techonologies } = props
@@ -24,12 +24,15 @@ function Sidebar(props) {
           Source
         </a>
       )}
+      <div>
+        <Link to="/projects">Back to projects</Link>
+      </div>
     </>
   )
 }
 
 function Main(props) {
-  const { mainImage, rawBody } = props
+  const { rawBody } = props
   return (
     <ArticleDiv>
       {rawBody ? <BlockContent blocks={rawBody} /> : null}
@@ -47,7 +50,7 @@ const ProjectTemplate = props => {
       excerpt={project.excerpt ? project.excerpt : null}
     >
       <div>
-        <WithSidebar
+        <SidebarLayout
           sidebarContent={
             <Sidebar
               deploymentUrl={project.deploymentUrl}

@@ -8,7 +8,8 @@ function Chips({ items }) {
     justify-content: flex-start;
     margin-left: -10px;
     > * {
-      margin: 10px;
+      margin: 0 10px;
+      margin-bottom: 8px;
     }
   `
   const StyledDiv = styled.div`
@@ -17,7 +18,7 @@ function Chips({ items }) {
     border-radius: 4px;
     p {
       color: white;
-      font-size: 14px;
+      font-size: 16px;
     }
   `
   return (

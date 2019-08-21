@@ -3,7 +3,6 @@ import styles from "./Hero.module.css"
 import SingleColumn from "./SingleColumn"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "gatsby"
-import styled from "styled-components"
 
 function Hero() {
   return (
@@ -15,7 +14,7 @@ function Hero() {
               <h1>
                 <span>Hi</span>
                 <span>I'm</span>
-                <span className={styles.hero__name}>Mart</span>
+                <span className={styles.hero__name}>Mart </span>
                 <span className={styles.hero__name}>Lepanen</span>
               </h1>
               <h2>I'm a front-end developer.</h2>

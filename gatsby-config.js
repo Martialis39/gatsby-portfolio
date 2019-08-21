@@ -89,7 +89,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["DM Serif Display", "Raleway", "Rubik"],
+          families: ["DM Serif Display", "Raleway:300,400,700"],
         },
       },
     },
