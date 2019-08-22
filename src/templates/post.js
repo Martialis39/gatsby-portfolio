@@ -7,6 +7,11 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 const LinkDiv = styled.div`
+  .next a,
+  .prev a {
+    line-height: 1.9;
+    font-size: 16px;
+  }
   @media (min-width: 770px) {
     display: flex;
     justify-content: space-between;

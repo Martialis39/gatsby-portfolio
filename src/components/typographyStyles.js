@@ -43,7 +43,8 @@ export const ArticleDiv = styled.div`
     margin-bottom: 16px;
   }
 
-  p > code {
+  p > code,
+  li > code {
     background-color: #fdf6e3;
     color: #657b83;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;

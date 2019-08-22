@@ -45,9 +45,10 @@ export const ProjectItem = styled(animated.article)`
     width: 100%;
     display: block;
     position: absolute;
+    border: none;
 
-    :after {
-      display: none;
+    &:hover {
+      background: transparent;
     }
   }
   .title {

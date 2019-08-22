@@ -26,24 +26,12 @@ const StyledSection = styled.section`
     a {
       position: relative;
       display: inline-block;
-      padding: 5px;
-      margin-left: -5px;
-      margin-top: -5px;
+
       font-size: 16px;
     }
 
     a:not(:last-child) {
       margin-bottom: 8px;
-    }
-    a:after {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 35%;
-      opacity: 0.2;
-      bottom: 0;
-      background-color: hotpink;
     }
 
     h1 {

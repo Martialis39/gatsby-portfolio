@@ -17,8 +17,8 @@ export const ArticleListItem = styled.li`
     font-weight: 500;
   }
 
-  a:after {
-    display: none;
+  a {
+    border: none;
   }
 
   .flex {
