@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-function SEO({ children, title, pagePath, excerpt }) {
+function SEO({ children, title, excerpt }) {
   return (
     <main>
       <Helmet>

@@ -9,6 +9,15 @@
 async function createBlogPostPages(graphql, actions, reporter) {
   const { createPage } = actions
 
+  const placeholder = await graphql(`
+    query MyQuery {
+      file(relativePath: { eq: "articlePlaceholder.jpg" }) {
+        name
+        publicURL
+      }
+    }
+  `)
+
   const projectQuery = await graphql(`
     query ProjectQuery {
       allSanityProject {
@@ -63,6 +72,11 @@ async function createBlogPostPages(graphql, actions, reporter) {
               current
             }
             _rawBody
+            mainImage {
+              asset {
+                url
+              }
+            }
           }
         }
       }
@@ -147,6 +161,10 @@ async function createBlogPostPages(graphql, actions, reporter) {
       title: edge.node.title,
       slug: edge.node.slug.current,
       date: edge.node.publishedAt,
+      image: edge.node.mainImage
+        ? edge.node.mainImage.asset.url
+        : placeholder.data.file.publicURL,
+      excerpt: edge.node.excerpt,
     }
   })
 
@@ -154,7 +172,9 @@ async function createBlogPostPages(graphql, actions, reporter) {
     return {
       title: edge.node.title,
       slug: edge.node.slug.current,
-      image: edge.node.mainImage.asset.url,
+      image: edge.node.mainImage
+        ? edge.node.mainImage.asset.url
+        : placeholder.data.file.publicURL,
       excerpt: edge.node.excerpt,
     }
   })

@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const path = require("path")
 
 module.exports = {
   /* Your site config here */
@@ -10,7 +11,14 @@ module.exports = {
     siteUrl: `https://martpart.ee`,
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: path.join(__dirname, "static"),
+      },
+    },
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -78,6 +86,7 @@ module.exports = {
         ],
       },
     },
+
     {
       resolve: "gatsby-source-sanity",
       options: {

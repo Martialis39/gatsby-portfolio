@@ -43,11 +43,26 @@ export const ArticleDiv = styled.div`
     margin-bottom: 16px;
   }
 
+  blockquote {
+    font-family: "Raleway", sans-serif;
+    padding: 8px;
+    font-size: 18px;
+    line-height: 1.6;
+    border-radius: 4px;
+    background: #ff69b440;
+
+    @media (min-width: 800px) {
+      font-size: 24px;
+      padding: 16px;
+    }
+  }
+
   p > code,
   li > code {
     background-color: #fdf6e3;
     color: #657b83;
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    word-break: break-word;
   }
 
   p {

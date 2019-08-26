@@ -1,14 +1,10 @@
 import React from "react"
 import SingleColumn from "../components/SingleColumn"
 import SEO from "../components/SEO"
+import Card from "../components/Card"
 
 import { Link } from "gatsby"
-import {
-  Projects,
-  ProjectItem,
-  ProjectImage,
-  FloatingLink,
-} from "./projectStyles"
+import { Projects, FloatingLink } from "./projectStyles"
 
 import { StyledHeader } from "../components/typographyStyles"
 
@@ -33,14 +29,14 @@ export default ({ pageContext: { projects, pagePath } }) => {
         <Projects>
           {projects.map((project, index) => {
             return (
-              <ProjectItem key={index}>
-                <ProjectImage img={project.image + heightParameter} />
-                <div className="info">
-                  <h3 className="title">{project.title}</h3>
-                  <p>{project.excerpt}</p>
-                </div>
-                <Link className="link" to={`/projects/${project.slug}`}></Link>
-              </ProjectItem>
+              <Card
+                key={index}
+                slug={project.slug}
+                img={project.image + heightParameter}
+                title={project.title}
+                excerpt={project.excerpt}
+                contentType={"projects"}
+              />
             )
           })}
         </Projects>
