@@ -5,10 +5,10 @@ import styled from "styled-components"
 
 export const CardItem = styled.article`
   display: flex;
-  height: 280px;
+  height: 540px;
   border-radius: 8px;
   width: 100%;
-  max-width: 450px;
+  max-width: 430px;
   position: relative;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -83,7 +83,7 @@ export const CardItem = styled.article`
 `
 
 export const CardImage = styled.div`
-  height: 280px;
+  height: 540px;
   width: 100%;
   background-image: url(${props => props.img});
   background-size: cover;
