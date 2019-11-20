@@ -20,12 +20,15 @@ function Hero() {
               <h2>I'm a front-end developer.</h2>
               <ul className={styles.hero__icons}>
                 <li>
-                  <a href="https://www.linkedin.com/in/mart-lepanen">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/mart-lepanen"
+                  >
                     <FaLinkedinIn />
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/Martialis39">
+                  <a target="_blank" href="https://github.com/Martialis39">
                     <FaGithub />
                   </a>
                 </li>
@@ -43,9 +46,6 @@ function Hero() {
               <ul className={styles.hero__links}>
                 <li>
                   <Link to="/blog">Read my blog</Link>
-                </li>
-                <li>
-                  <Link to="/projects">Look at my portfolio</Link>
                 </li>
               </ul>
             </div>
