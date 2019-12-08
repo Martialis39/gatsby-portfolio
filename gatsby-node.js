@@ -74,7 +74,17 @@ async function createBlogPostPages(graphql, actions, reporter) {
             _rawBody
             mainImage {
               asset {
-                url
+                _id
+                size
+                fluid(maxHeight: 540) {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
               }
             }
           }
@@ -157,13 +167,12 @@ async function createBlogPostPages(graphql, actions, reporter) {
   })
 
   const posts = postEdges.map(edge => {
+    console.log(edge.node.mainImage)
     return {
       title: edge.node.title,
       slug: edge.node.slug.current,
       date: edge.node.publishedAt,
-      image: edge.node.mainImage
-        ? edge.node.mainImage.asset.url
-        : placeholder.data.file.publicURL,
+      image: edge.node.mainImage || placeholder.data.file.publicURL,
       excerpt: edge.node.excerpt,
     }
   })

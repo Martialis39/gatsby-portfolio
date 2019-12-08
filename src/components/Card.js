@@ -6,12 +6,10 @@ import styled from "styled-components"
 export const CardItem = styled.article`
   display: flex;
   height: 540px;
-  border-radius: 8px;
   width: 100%;
-  max-width: 430px;
+  max-width: 50%;
   position: relative;
   margin: 0 auto;
-  margin-bottom: 10px;
   align-items: center;
   justify-content: center;  
   overflow: hidden;
@@ -69,6 +67,7 @@ export const CardItem = styled.article`
     transform: translateY(${props => props.height + "px"});
     width: 100%;
     transition: all 200ms;
+    padding: 5px;
     
 
     @media (max-width: 600px) {
@@ -87,9 +86,7 @@ export const CardImage = styled.div`
   width: 100%;
   background-image: url(${props => props.img});
   background-size: cover;
-  background-position: 50% 50%;
-  border-radius: 8px;
-  backface-visibility: hidden;
+  background-position: center;
   transition: all 300ms;
 
   ${CardItem}:hover & {
@@ -107,7 +104,7 @@ function Card({ slug, title, excerpt, img, contentType }) {
 
   return (
     <CardItem height={height}>
-      <CardImage img={img} />
+      <CardImage img={img.asset ? img.asset.fluid.src : img} />
       <div className="info">
         <h3 className="title">{title}</h3>
         <p className="excerpt" ref={measuredRef}>

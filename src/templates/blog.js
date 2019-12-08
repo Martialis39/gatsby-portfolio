@@ -24,7 +24,7 @@ export default ({ pageContext: { posts, pagePath } }) => {
           <h2>Latest</h2>
         </StyledHeader>
 
-        <ul>
+        <ul className="c-blog">
           {posts.map((post, index) => {
             return (
               <Card

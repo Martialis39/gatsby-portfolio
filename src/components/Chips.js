@@ -3,33 +3,21 @@ import styled from "styled-components"
 
 function Chips({ items }) {
   const Wrap = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-left: -10px;
-    > * {
-      margin: 0 10px;
-      margin-bottom: 8px;
-    }
-  `
-  const StyledDiv = styled.div`
-    background: hotpink;
-    padding: 4px;
-    border-radius: 4px;
     p {
-      color: white;
-      font-size: 16px;
+      color: black;
+      font-size: 24px;
     }
   `
   return (
     <Wrap>
-      {items.map(tech => {
-        return (
-          <StyledDiv>
-            <p>{tech.title}</p>
-          </StyledDiv>
-        )
-      })}
+      <p>
+        {items.map((tech, index) => (
+          <span>
+            {tech.title}
+            {index !== items.length - 1 && " | "}
+          </span>
+        ))}
+      </p>
     </Wrap>
   )
 }

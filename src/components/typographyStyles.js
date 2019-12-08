@@ -86,7 +86,7 @@ export const ArticleDiv = styled.div`
       width: 8px;
       border-radius: 50%;
       background-color: hotpink;
-      top: 5px;
+      top: 10px;
       left: -16px;
     }
   }

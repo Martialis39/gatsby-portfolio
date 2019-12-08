@@ -7,7 +7,7 @@ const StyledSection = styled.section`
   display: block;
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 136px;
+  margin-top: 80px;
   padding: 0px 20px;
 
   .mainContent {
@@ -35,8 +35,8 @@ const StyledSection = styled.section`
     }
 
     h1 {
-      font-size: 40px;
-      line-height: 1.1;
+      font-size: 52px;
+      line-height: 0.9;
 
       margin-bottom: 20px;
     }
