@@ -1,14 +1,12 @@
 import React from "react"
 import SEO from "../components/SEO"
 import BlockContent from "../components/block-content/BlockContent"
-import SidebarLayout from "../components/SidebarLayout"
-import { ArticleDiv } from "../components/typographyStyles"
+import MainLayout from "../components/MainLayout"
 import Chips from "../components/Chips"
 import { Link } from "gatsby"
 
-function Sidebar(props) {
-  const { title, deploymentUrl, sourceUrl, techonologies } = props
-
+function Main(props) {
+  const { title, deploymentUrl, sourceUrl, techonologies, rawBody } = props
   return (
     <>
       <h1>{title}</h1>
@@ -27,16 +25,8 @@ function Sidebar(props) {
       <div>
         <Link to="/projects">Back to projects</Link>
       </div>
+      <div>{rawBody ? <BlockContent blocks={rawBody} /> : null}</div>
     </>
-  )
-}
-
-function Main(props) {
-  const { rawBody } = props
-  return (
-    <ArticleDiv>
-      {rawBody ? <BlockContent blocks={rawBody} /> : null}
-    </ArticleDiv>
   )
 }
 
@@ -50,24 +40,15 @@ const ProjectTemplate = props => {
       excerpt={project.excerpt ? project.excerpt : null}
     >
       <div>
-        <SidebarLayout
-          sidebarContent={
-            <Sidebar
-              deploymentUrl={project.deploymentUrl}
-              sourceUrl={project.sourceUrl}
-              techonologies={project.techonologies}
-              title={project.title}
-            />
-          }
-          mainContent={
-            <Main
-              mainImageUrl={
-                project.mainImage ? project.mainImage.asset.url : null
-              }
-              rawBody={project.rawBody}
-            />
-          }
-        />
+        <MainLayout>
+          <Main
+            title={project.title}
+            deploymentUrl={project.deploymentUrl}
+            sourceUrl={project.sourceUrl}
+            techonologies={project.techonologies}
+            rawBody={project.rawBody}
+          />
+        </MainLayout>
       </div>
     </SEO>
   )

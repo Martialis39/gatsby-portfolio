@@ -1,12 +1,12 @@
 import React from "react"
-import styles from "./Hero.module.css"
+import styles from "./Hero.module.scss"
 import SingleColumn from "./SingleColumn"
 import { FaGithub, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "gatsby"
 
 function Hero() {
   return (
-    <section className={styles.hero__main}>
+    <section className={styles.hero__scss}>
       <SingleColumn>
         <section className={styles.hero}>
           <div className={styles.hero__inner}>

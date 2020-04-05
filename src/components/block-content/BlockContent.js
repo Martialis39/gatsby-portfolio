@@ -29,6 +29,7 @@ const serializers = {
       )
     },
     code(props) {
+      console.log(props)
       return (
         <pre className={`language-${props.node.language}`}>
           <code>{props.node.code}</code>

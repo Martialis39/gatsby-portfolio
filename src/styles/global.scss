@@ -1,6 +1,6 @@
 body {
   min-height: 100vh;
-  background: #fffff4;
+  font-family: "Poppins", sans-serif;
 }
 
 * {
@@ -28,35 +28,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
   color: black;
 }
 
-p,
-li {
-  line-height: 1.6;
-  font-size: 18px;
-}
-
-p,
-a,
-a:visited,
-li {
-  font-family: "Raleway", sans-serif;
-}
-
 a {
-  padding: 1px;
   text-decoration: none;
-  color: hotpink;
-  border-bottom: 1px solid hotpink;
-  transition: all 200ms ease-in-out;
-  font-weight: 700;
-}
-
-a:hover {
-  background: hotpink;
-  color: white;
 }
 
 /* BLOG STYLES */

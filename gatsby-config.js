@@ -12,9 +12,23 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         path: path.join(__dirname, "static"),
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "oqbwg1j3",
+        dataset: "production",
       },
     },
     `gatsby-plugin-sitemap`,
@@ -22,12 +36,14 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-styled-components`,
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: `<!-- end -->`,
         plugins: [
           {
             resolve: `gatsby-remark-prismjs`,
@@ -86,19 +102,11 @@ module.exports = {
         ],
       },
     },
-
-    {
-      resolve: "gatsby-source-sanity",
-      options: {
-        projectId: "oqbwg1j3",
-        dataset: "production",
-      },
-    },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["DM Serif Display", "Raleway:300,400,700"],
+          families: ["Poppins:300,400,700"],
         },
       },
     },

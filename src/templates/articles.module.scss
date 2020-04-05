@@ -1,0 +1,41 @@
+.articles {
+  h1 {
+    font-size: 60px;
+    line-height: 1;
+    margin-bottom: 40px;
+    background: #66d9ef;
+    color: #fff;
+    padding: 10px;
+  }
+  li {
+    margin-bottom: 20px;
+
+    a {
+      color: #000;
+
+      &:visited {
+        color: #000;
+      }
+    }
+
+    h2 {
+      font-size: 32px;
+    }
+  }
+  .title,
+  .date {
+    margin-bottom: 10px;
+  }
+
+  .date {
+    text-align: right;
+  }
+
+  .header {
+    color: #000;
+  }
+
+  .title {
+    color: #000;
+  }
+}

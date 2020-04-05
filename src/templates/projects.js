@@ -2,11 +2,8 @@ import React from "react"
 import SingleColumn from "../components/SingleColumn"
 import SEO from "../components/SEO"
 import Card from "../components/Card"
-
 import { Link } from "gatsby"
 import { Projects, FloatingLink } from "./projectStyles"
-
-import { StyledHeader } from "../components/typographyStyles"
 
 const heightParameter = "?h=300"
 
@@ -14,7 +11,7 @@ export default ({ pageContext: { projects, pagePath } }) => {
   return (
     <SEO title="Projects" pagePath={pagePath}>
       <SingleColumn>
-        <StyledHeader style={{ position: "relative" }}>
+        <div style={{ position: "relative" }}>
           <FloatingLink>
             <Link to="/">Back home</Link>
           </FloatingLink>
@@ -25,7 +22,7 @@ export default ({ pageContext: { projects, pagePath } }) => {
           </h1>
 
           <div></div>
-        </StyledHeader>
+        </div>
         <Projects>
           {projects.map((project, index) => {
             return (

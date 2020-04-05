@@ -1,0 +1,9 @@
+.single_column {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 10px;
+  height: 100%;
+  @media (min-width: 600px) {
+    padding: 20px;
+  }
+}
